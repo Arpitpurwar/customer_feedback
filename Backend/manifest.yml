@@ -1,0 +1,5 @@
+---
+applications:
+ - name: customer_feedback
+   random-route: false
+   memory: 150M

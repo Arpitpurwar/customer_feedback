@@ -1,0 +1,129 @@
+    mat-icon {
+      font-size: 200px;
+      width: 100%;
+    }
+
+    .please-rate {
+      font-size: 14px;
+      margin-top: 20px;
+      margin-right: 5px;
+    }
+
+    .mail-content,
+    .hi-class {
+      font-size: 26px;
+    }
+
+    b {
+      font-weight: 500;
+      color: #333;
+    }
+
+    h3 {
+      font-size: 3rem;
+      margin-top: 50px;
+    }
+
+    .smiley-icon {
+      font-size: 200px;
+      width: 200px;
+      color: #3f51b5;
+    }
+
+    textarea.mat-input-element {
+      resize: none;
+    }
+
+    .mat-form-field {
+      width: 60%;
+    }
+
+    ::ng-deep.mat-form-field-appearance-outline .mat-form-field-outline-thick {
+      color: #3f51b5;
+    }
+
+
+    .app-button {
+      margin-top: 0;
+    }
+
+    .body-class {
+      line-height: initial;
+    }
+
+    textarea[required] {
+      border-color: #3f51b5;
+    }
+
+    ::ng-deep ngb-rating:focus {
+      outline: none;
+    }
+
+    .star {
+      font-size: 1.5rem;
+      color: #ccc;
+    }
+
+    .filled {
+      color: #fc0;
+    }
+
+    .mat-raised-button {
+      min-width: 150px;
+      line-height: 50px;
+      font-size: 18px;
+    }
+
+    @media(max-width:576px) {
+      .mat-icon {
+        font-size: 64px;
+      }
+
+      .mail-content{
+        font-size: 16px;
+        margin: 0px 15px 0px 15px;
+      }
+      .hi-class {
+        font-size: 15px;
+        padding: 0px 5px 0px 5px;
+      }
+    
+      .mat-raised-button {
+        min-width: 110px;
+        font-size: 16px;
+      }
+
+      .mat-form-field {
+        width: 90%;
+      }
+
+      h3 {
+        font-size: 2rem;
+        margin-top: 50px;
+      }
+
+      .thumb-up {
+        font-size: 85px;
+      }
+    }
+
+    @media(min-width:577px) and (max-width:768px) {
+      .mat-icon {
+        font-size: 115px;
+      }
+
+      .mat-form-field {
+        width: 75%;
+      }
+
+      .mail-content,
+      .hi-class {
+        font-size: 20px;
+      }
+    }
+
+    @media(min-width:769px) and (max-width:992px) {
+      .mat-icon {
+        font-size: 150px;
+      }
+    }

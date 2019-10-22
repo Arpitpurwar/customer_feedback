@@ -1,0 +1,98 @@
+<form [formGroup]="viewFeedbackForm" class="my-form text-center" autocomplete="off" *ngIf="!loading">
+  <mat-form-field>
+    <input type="text" matInput [matAutocomplete]="auto" aria-label="Name/Id" placeholder="Project Name/Project ID"
+      formControlName="pId" [value]="project" (keyup)="enterFunction($event)" required [(ngModel)]="value">
+    <button class="close-icon" mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <mat-autocomplete #auto="matAutocomplete">
+    <mat-option *ngFor="let c of results | filter : project" [value]="[c.projectName, c.projectId]" (click)="onTouchStart(c.projectName, c.projectId)">{{c.projectName}}
+      , {{c.projectId}}</mat-option>
+  </mat-autocomplete>
+
+  <button on-click="details()" mat-raised-button color="primary" class="go-btn" [disabled]="viewFeedbackForm.invalid">GO</button>
+
+</form>
+<mat-card *ngIf="showNoFeedback" class="no-feedback text-center">
+  No Feedback Available </mat-card>
+
+<div class="details" *ngIf="!loading">
+  <div class="project-details" [class]=revealClass>
+    <mat-card class="star-bar-class">
+      <div class="row">
+        <div class="col-sm-6 px-0 text-center">
+          <b class="font-class">{{projectName}}, {{projectId}}</b>
+          <div class="name-rating-col">
+            <ng-template #t let-fill="fill">
+              <span class="star" [class.full]="fill === 100">
+                <span class="half" [style.width.%]="fill">
+                  <mat-icon class="big-star">star</mat-icon>
+                </span>
+                <mat-icon class="big-star">star</mat-icon>
+              </span>
+            </ng-template>
+
+            <ngb-rating [(rate)]=" AvgRating" [starTemplate]="t" [readonly]="true" max="5"></ngb-rating>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="text-center font-class"><b>{{AvgRating}}</b> out of 5</div>
+          <div class="text-center">
+            <div *ngFor="let number of rat; let i=index" class="text-center class-display">
+              {{i+1}} star
+              <mat-progress-bar mode="determinate" value="{{number}}" class="text-center progress-bar-class mx-2"></mat-progress-bar>
+              {{number}} %
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-card>
+    <div *ngFor="let feedback of feedbackArray" class="border-class">
+      <mat-card>
+        <mat-card-content>
+          <div>
+            <div class="row">
+              <div class="col-md-8 col-lg-6">
+                <mat-icon class="milestone-icon mr-2">how_to_reg</mat-icon>
+                <b>{{feedback.milestoneName}}</b> <b class="mx-2">|</b><span class="client-name">{{feedback.user}}</span>
+              </div>
+              <div class="comment-date col-md-4 col-lg-6">{{feedback.submit_date |
+                date:
+                'dd-MM-yyyy'}}</div>
+            </div>
+            <div>
+              <ng-template #t let-fill="fill">
+                <span class="star" [class.full]="fill === 100">
+                  <span class="half" [style.width.%]="fill">
+                    <mat-icon>star_rate</mat-icon>
+                  </span>
+                  <mat-icon>star_rate</mat-icon>
+                </span>
+              </ng-template>
+
+              <ngb-rating [(rate)]=" feedback.rating" [starTemplate]="t" [readonly]="true" max="5"></ngb-rating>
+              <b class="ml-2">{{ feedback.rating}} out of 5</b>
+
+            </div>
+            <div>
+              <span class="comment-name">{{feedback.comment}}</span>
+            </div>
+
+
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</div>
+
+<button (click)="goBack()" mat-fab class="btn-matfab-class" matTooltip="Go Back">
+  <mat-icon class="add-button">arrow_back</mat-icon>
+</button>
+
+<div *ngIf="loading" class="d-flex justify-content-center" style="position: relative; top: 260px;">
+  <div class="spinner-border" style="margin:0 10px; color: #3f51b5;" role="status">
+  </div><strong style="margin-top: 5px;">Please wait...</strong>
+</div>

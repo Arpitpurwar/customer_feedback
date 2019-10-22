@@ -1,0 +1,258 @@
+mat-form-field {
+  width: 40%;
+}
+
+.go-btn {
+  margin-left: 1rem;
+}
+
+.go-btn:focus {
+  outline: none;
+}
+
+mat-form-field {
+  margin-left: 35px;
+}
+
+mat-card {
+  margin: 40px 120px;
+}
+
+.my-form {
+  margin-top: 25px;
+}
+
+.avg-rating {
+  font-size: 16px;
+}
+
+.no-of-rating {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+
+.progress {
+  width: 20%;
+  margin: 5px;
+  border-radius: 1px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, .4), inset 0 0 0 1px rgba(0, 0, 0, .1);
+}
+
+.progress-bar {
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .25), inset 0 -1px 0 rgba(0, 0, 0, .05);
+}
+
+.outer-bar {
+  height: 15px;
+  width: 40%;
+  margin: 20px;
+  background: #ddd;
+  border-radius: 1px;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, .4), inset 0 0 0 1px rgba(0, 0, 0, .1);
+
+}
+
+.inner-bar {
+  height: 15px;
+  background: #f1c40f;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .25), inset 0 -1px 0 rgba(0, 0, 0, .05);
+}
+
+.review-btn:focus,
+.user-btn:focus {
+  display: none;
+}
+
+.sys-date {
+  font-size: 12px;
+}
+
+.star {
+  position: relative;
+  display: inline-block;
+  font-size: 25px;
+  color: #ddd;
+  top: 5px;
+}
+
+.full {
+  color: #fc0;
+}
+
+.half {
+  position: absolute;
+  display: inline-block;
+  overflow: hidden;
+  color: #fc0;
+}
+
+.project-details {
+  margin-top: 20px;
+  margin-left: 35px;
+  margin-right: 35px;
+}
+
+.account-circle-img,
+.comment-icon,
+.date-range {
+  position: relative;
+  top: 5px;
+}
+
+.comment-date {
+  font-size: 12px;
+  margin-top: 5px;
+  text-align: right;
+}
+
+span.comment-name {
+  word-break: break-word;
+}
+
+.big-star {
+  font-size: 60px;
+  width: 60px;
+  height: 60px;
+}
+
+.milestone-icon {
+  margin-bottom: 10px;
+  font-size: 30px;
+  vertical-align: middle;
+}
+
+.progress-bar-class {
+  width: 75%;
+  height: 20px;
+  margin-top: 3px;
+  border-radius: 5px;
+}
+
+::ng-deep.mat-progress-bar-fill::after {
+  background-color: #fc0;
+}
+
+::ng-deep.mat-progress-bar-background {
+  fill: #ddd;
+}
+
+::ng-deep.mat-progress-bar-buffer {
+  background-color: #ddd;
+}
+
+.star-bar-class {
+  margin: 20px 0px;
+}
+
+.project-name-id {
+  font-size: 26px;
+}
+
+.class-display {
+  display: -webkit-box;
+}
+
+.close-icon:focus {
+  outline: none;
+}
+
+.font-class {
+  font-size: x-large;
+}
+
+.request-icon:focus {
+  outline: none;
+}
+
+.request-icon {
+  display: flex;
+  cursor: pointer;
+}
+
+ngb-rating:focus {
+  outline: none;
+}
+
+.card-class {
+  cursor: pointer;
+}
+
+@media (max-width: 576px) {
+  .progress {
+    width: 30%;
+  }
+
+  .comment-date {
+    text-align: left;
+  }
+
+  mat-card {
+    margin: 0 0 15px 0;
+  }
+
+  .card-class {
+    margin: 5px 20px;
+  }
+
+  .big-star {
+    font-size: 40px;
+    width: 40px;
+    height: 40px;
+  }
+
+  mat-form-field {
+    width: 55% !important;
+    margin-left: 0;
+  }
+
+  .class-display {
+    width: 100%;
+  }
+
+  .small-star-size {
+    font-size: 16px;
+    width: 16px;
+  }
+
+  .request-icon {
+    display: inline;
+    cursor: pointer;
+  }
+
+  .ngb-rating-class {
+    margin-top: -10px;
+  }
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+  .go-btn {
+    margin-left: 0;
+  }
+
+  .comment-date {
+    text-align: left;
+  }
+
+  mat-form-field {
+    padding-right: 15px;
+  }
+}
+
+.class-display {
+  width: 90%;
+}
+
+
+.mat-fab {
+  background-color: rgb(255, 193, 7);
+  position: fixed;
+  right: 20px;
+  bottom: 30px;
+}
+
+.mat-fab:focus,
+.mat-icon:focus,
+button {
+  outline: none;
+}

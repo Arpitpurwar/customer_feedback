@@ -1,0 +1,56 @@
+.mat-drawer-container {
+  background: unset;
+  position: inherit;
+}
+
+.app-menu-button {
+  min-width: 40px;
+  padding: 0;
+}
+
+.app-menu-button:focus {
+  outline: none;
+}
+
+.example-icon {
+  font-size: 26px;
+  margin-top: -15px;
+}
+
+.toolbar-title {
+  font-size: 20px;
+}
+
+
+@media (max-width: 768px) {
+  .toolbar-title {
+    font-size: 14px;
+  }
+
+  .app-menu-button {
+    margin-left: -10px;
+    min-width: 30px;
+  }
+
+  .example-icon {
+    margin-top: -5px;
+  }
+}
+
+.mat-fab {
+  background-color: rgb(255, 193, 7);
+  position: fixed;
+  right: 20px;
+  bottom: 30px;
+  z-index: 10;
+}
+
+.mat-fab:focus {
+  outline: none;
+}
+
+
+
+.ng-star-inserted:focus {
+  outline: none;
+}

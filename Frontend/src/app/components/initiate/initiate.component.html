@@ -1,0 +1,102 @@
+<mat-card class="app-input-section text-center main-card" *ngIf = "!loading">
+  <form [formGroup]="initiateForm" class="my-form" autocomplete="off">
+
+    <mat-card-content>
+      <mat-form-field class="form-class">
+        <input type="text" matInput [matAutocomplete]="auto" aria-label="Name/Id" placeholder="Project" formControlName="pId"
+          [value]="project" (focusout)="call()" (keyup)="enterFunction($event)" required [(ngModel)]="value">
+        <button mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let c of projectData | filter : project" [value]="[c.projectName, c.projectId]" (click)="onTouchStart(c.projectName, c.projectId)">{{c.projectName}}
+          , {{c.projectId}}</mat-option>
+      </mat-autocomplete>
+    </mat-card-content>
+    <mat-card-content>
+      <mat-form-field class="form-class"> 
+          <mat-select placeholder="Select a template for mail "  [(ngModel)]="selectedOption"  formControlName="templateCategory" class="mile-stone" required (selectionChange)="onCategory()">
+            <mat-option *ngFor="let cat of category" [value]="cat.value">
+                {{cat.viewValue}}
+              </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-content>
+      <mat-form-field class="form-class"  *ngIf="selectedOption === 'project'">
+        <mat-error *ngIf="completed()">Milestones are Completed</mat-error>
+        <mat-select placeholder="Milestone" formControlName="pMilestone" class="mile-stone" required (selectionChange)="milestoneSelected($event)">
+
+          <mat-option *ngFor="let task of updatedmilestone" [value]="task.name">{{task.name}}</mat-option>
+
+        </mat-select>
+      </mat-form-field>
+    </mat-card-content>
+
+    <mat-card-content>
+      <mat-form-field class="form-class"  *ngIf="selectedOption === 'others'">
+          <mat-select placeholder="Category" formControlName="otherCategory" class="mile-stone" required>
+
+          <mat-option *ngFor="let task of other" [value]="task.name">{{task.name}}</mat-option>
+
+        </mat-select>
+      </mat-form-field>
+    </mat-card-content>
+    <ejs-richtexteditor *ngIf="selectedOption === 'project' || selectedOption === 'others'" formControlName="mailContent" id='defaultRTE' [(ngModel)]='editorvalue' [toolbarSettings]='tools' [quickToolbarSettings]='quickTools'>
+    
+    </ejs-richtexteditor>
+  
+<div formArrayName="allRecipients">
+    <div *ngFor="let recipients of initiateForm.controls['allRecipients']['controls']; let i=index" [formGroupName]="i">
+      <mat-card-content>
+      <div class="mail-name">      
+         
+            <mat-form-field class="email-chip-list form-class-name" hideRequiredMarker>
+                <input matInput class="mat-input" formControlName="emailId" value={{recipientEmailValue[i]}}
+                  pattern required>
+                  <mat-placeholder class="mat-body-1">Recipient mail {{i+1}}</mat-placeholder>
+              </mat-form-field>
+              <mat-error class="error-text  email-error-message" *ngFor="let validation of accountValidationMessages.emailId">
+                <mat-error *ngIf="recipients.controls.emailId.touched || recipients.controls.emailId.dirty">
+                  <mat-error class="error-text" *ngIf="recipients.hasError('maxlength', 'recipientEmail') || recipients.hasError('pattern', 'recipientEmail')">
+                    Please enter valid email
+                  </mat-error>
+                </mat-error>
+              </mat-error>
+           
+             
+            <mat-form-field class="example-chip-list form-class-name" hideRequiredMarker>
+              <input matInput class="mat-input" formControlName="name"  maxlength="30" value={{recipientNameValue[i]}} required>
+              <mat-placeholder class="mat-body-1">Recipient name {{i+1}}</mat-placeholder>
+                <mat-icon class="remove-icon" *ngIf="initiateForm.controls['allRecipients'].controls.length > 1" (click)="removeRecipient(i)">remove_circle_outline</mat-icon>
+            </mat-form-field>
+         
+        </div>
+      </mat-card-content>
+    </div>
+    <div class="add-rec">
+        <span class="add-text">Add Recipients</span>
+        <mat-icon class="add-icon" (click)="addRecipient()">add_circle_outline</mat-icon>
+      </div>
+       <div *ngIf="!showrecipientError">
+      <div class="error-text recipient-error">Please remove</div>
+    </div>
+  </div>
+
+    <mat-card-content class="btn-class">
+      <button class="app-button" mat-raised-button color="primary" (click)="initiateData()" *ngIf = "!loading" [disabled]="initiateForm.invalid">Request</button>
+      <button class="app-button" mat-raised-button color="primary" (click)="resetForm()">Reset</button>
+    </mat-card-content>
+  </form>
+</mat-card>
+
+<button (click)="goBack()" mat-fab class="btn-matfab-class" matTooltip="Go Back">
+  <mat-icon class="add-button">arrow_back</mat-icon>
+</button>
+
+
+<div *ngIf="loading" class="d-flex justify-content-center" style="position: relative; top: 260px;">
+  <div class="spinner-border" style="margin:0 10px; color: #3f51b5;" role="status">
+  </div><strong style="margin-top: 5px;">Please wait...</strong>
+</div>

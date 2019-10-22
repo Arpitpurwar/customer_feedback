@@ -1,0 +1,70 @@
+<form [formGroup]="viewFeedbackForm" class="my-form text-center" *ngIf = "!loading" autocomplete="off">
+  <mat-form-field>
+    <input type="text" matInput [matAutocomplete]="auto" aria-label="Name/Id" placeholder="Project Name/Project ID"
+      formControlName="pId" [value]="project" (keyup)="enterFunction($event)" required [(ngModel)]="value">
+    <button class="close-icon" mat-button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+
+  <mat-autocomplete #auto="matAutocomplete">
+    <mat-option *ngFor="let c of results | filter : project" [value]="[c.projectName, c.projectId]" (click)="onTouchStart(c.projectName, c.projectId)">{{c.projectName}}
+      , {{c.projectId}}</mat-option>
+  </mat-autocomplete>
+
+  <button on-click="details()" mat-raised-button color="primary" class="go-btn" [disabled]="viewFeedbackForm.invalid">GO</button>
+
+</form>
+<div *ngIf="!loading">
+  <div [routerLink]="['/view-feedback']" [class]="cardClass" *ngFor="let card of results;let i=index">
+    <mat-card class="card-class" (click)="displayItem(card.projectId)">
+      <mat-card-content>
+        <div class="row">
+          <div class="col-4">
+            {{card.projectName}}
+          </div>
+          <div class="col-4"  >
+            Rating
+            <div class="name-rating-col">
+              <ng-template #t let-fill="fill">
+                <span class="star" [class.full]="fill === 100">
+                  <span class="half" [style.width.%]="fill">
+                    <mat-icon class="small-star-size">star</mat-icon>
+                  </span>
+                  <mat-icon class="small-star-size">star</mat-icon>
+                </span>
+              </ng-template>
+              <div class="ngb-rating-class">
+                <ngb-rating [(rate)]="allAvgRatings[i]" [starTemplate]="t" [readonly]="true" max="5"></ngb-rating>
+              </div>
+              <div ><b> {{allAvgRatings[i]}}</b> out of 5</div>
+              <!-- <ngb-rating [(rate)]="allAvgRatings[card.projectId][0]" [starTemplate]="t" [readonly]="true" max="5"></ngb-rating>
+            <div><b class="ml-2">{{allAvgRatings[card.projectId][0] || 0}}</b> out of 5</div> -->
+            </div>
+
+
+          </div>
+          <!-- <div class="col-3">
+          Client Name
+        </div> -->
+          <div [routerLink]="['/initiate']" class="request-icon col-4">
+            <mat-icon>question_answer</mat-icon>
+            <span class="ml-2">Request Feedback</span>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
+
+
+<button [routerLink]="['/configure']" mat-fab class="btn-matfab-class" matTooltip="Add Project">
+  <mat-icon class="add-button">add</mat-icon>
+</button>
+
+
+
+<div *ngIf="loading" class="d-flex justify-content-center" style="position: relative; top: 260px;">
+  <div class="spinner-border" style="margin:0 10px; color: #3f51b5;" role="status">
+  </div><strong style="margin-top: 5px;">Please wait...</strong>
+</div>

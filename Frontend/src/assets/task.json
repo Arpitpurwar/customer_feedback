@@ -1,0 +1,42 @@
+[
+  {
+  "projectM": [
+    {
+      "id": 1,
+      "name": "Planning"
+    },
+    {
+      "id": 2,
+      "name": "Design"
+    },
+    {
+      "id": 3,
+      "name": "Coding"
+    },
+    {
+      "id": 4,
+      "name": "Testing"
+    },
+    {
+      "id": 5,
+      "name": "Closure"
+    },
+    {
+      "id": 6,
+      "name": "walkthrough"
+    }
+  ],
+
+  "Others": [
+    {
+      "id": 7,
+      "name": "demo"
+    },
+    {
+      "id": 8,
+      "name": "floor walk"
+    }
+
+  ]
+}
+]

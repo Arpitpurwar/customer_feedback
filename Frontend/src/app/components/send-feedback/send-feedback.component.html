@@ -1,0 +1,60 @@
+<div class="text-center dynamic-field mt-5" [hidden]="showElement">
+  <mat-icon class="smiley-icon mt-5">thumb_up</mat-icon>
+  <h3>Thanks for your valuable feedback!</h3>
+</div>
+
+<div *ngIf="!loading">
+<div class="text-center dynamic-field mt-5" *ngIf="!expired">
+  <div *ngIf="already">
+    <mat-icon class="smiley-icon thumb-up mt-5">thumb_up</mat-icon>
+    <h3>Thanks for your valuable feedback!</h3>
+  </div>
+</div>
+<div class="text-center dynamic-field mt-5" *ngIf="expired">
+  <mat-icon class="smiley-icon">link_off</mat-icon>
+  <h3>OOPS, The link has expired.</h3>
+</div>
+</div>
+
+<div *ngIf="!loading">
+<form [formGroup]="sendFeedbackForm" class="my-form text-center" [hidden]="hideElement" *ngIf=" !already && !expired">
+
+  <div *ngIf="showdata" class="body-class">
+
+    <p class="hi-class">Hi <b>{{name}}!</b></p>
+
+    <p class="mail-content" [innerHTML]="email_content">
+      <!-- As <b>{{projectName}} project</b> has reached <b>{{milestone}} milestone</b>, <br>we would like to hear from you
+      how
+      <b>{{team}}</b>
+      performed -->
+      <!-- It was a pleasure to work with you on the {{projectName}} project.<br>
+      We would like to hear about your experience with us. -->
+      
+    </p>
+
+    <!-- <div class="form-group"> -->
+    <ngb-rating formControlName="stars" max="5">
+      <ng-template let-fill="fill">
+        <span class="star" [class.filled]="fill === 100">
+          <mat-icon class="star-icon">star</mat-icon>
+        </span>
+      </ng-template>
+    </ngb-rating>
+    <!-- </div> -->
+
+    <div>
+      <mat-form-field appearance="outline">
+        <textarea class="textarea-input" matInput rows="5" placeholder="Comments" formControlName="comments" required></textarea>
+      </mat-form-field>
+    </div>
+    <button class="app-button" mat-raised-button color="primary" (click)="openSave()" [disabled]="sendFeedbackForm.invalid">Submit</button>
+    <button class="app-button" mat-raised-button color="primary" (click)="openReset()">Reset</button>
+  </div>
+</form>
+</div>
+
+<div *ngIf="loading" class="d-flex justify-content-center" style="position: relative; top: 260px;">
+  <div class="spinner-border" style="margin:0 10px; color: #3f51b5;" role="status">
+  </div><strong style="margin-top: 5px;">Please wait...</strong>
+</div>

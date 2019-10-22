@@ -1,0 +1,199 @@
+.grid-toolbar {
+  display: flex;
+  flex: 1;
+}
+
+:host ::ng-deep .align-left .mat-figure {
+  justify-content: flex-start;
+}
+
+:host ::ng-deep .align-right .mat-figure {
+  justify-content: flex-end;
+}
+
+.select-lang {
+  width: 42px;
+}
+
+.my-form {
+  margin-top: 25px;
+}
+
+.app-button {
+  margin: 15px;
+}
+
+.form-class {
+  width: 45% !important;
+}
+
+.add-rec{
+  text-align: center;
+  margin-left: -348px !important;
+  margin-bottom: 10px;
+}
+
+.add-text{
+  font-size: 14px;
+  color: grey;
+}
+
+.add-icon{
+  position: absolute !important;
+  cursor: pointer;
+  padding-left: 2px;
+  color: grey;
+  font-size: 18px;
+  margin-top: 4px;
+}
+.mail-name{
+  display: flex;
+  margin-left: -30px;
+  justify-content: center;
+}
+.form-class-name {
+  width: 20% !important;
+}
+
+.email-chip-list {
+  margin-right: 20px;
+    margin-left: 7px;
+}
+
+mat-card {
+  margin: 40px 120px;
+}
+
+.remove-icon {
+  position: absolute !important;
+  margin-left: 6px !important;
+  cursor: pointer;
+  font-size: 18px;
+  color: grey;
+}
+
+.app-title {
+  font-size: 24px;
+  margin-left: 20px;
+}
+
+.label-class {
+  margin-right: 20px;
+}
+
+.btn-class {
+  margin-left: 20px;
+}
+
+.mat-fab {
+  background-color: rgb(255, 193, 7);
+  position: fixed;
+  right: 20px;
+  bottom: 30px;
+}
+
+.mat-fab:focus,
+.mat-icon:focus,
+button {
+  outline: none;
+}
+
+@media (max-width: 576px) {
+  .form-class {
+    width: 80% !important;
+  }
+
+  .form-class-name {
+    width: 45% !important;
+  }
+
+  .app-title {
+    font-size: 16px;
+    margin-left: 5px;
+  }
+  .mail-name{
+    display: flex;
+    margin-left: 33px;
+    justify-content: left;
+  }
+  .email-chip-list{
+    margin-right: -2px !important;
+  }
+  .add-rec{
+    padding-left: 160px !important;
+  }
+  mat-card {
+    margin: 40px 15px 80px;
+  }
+}
+
+@media (min-width: 577px) and (max-width: 992px) {
+  .form-class {
+    width: 80% !important;
+  }
+
+  .form-class-name {
+    width: 38% !important;
+  }
+  .email-chip-list {
+    margin-left: -20px;
+    margin-right: 10px;
+  }
+
+  .app-title {
+    font-size: 24px;
+  }
+  .add-rec{
+    /* margin-left: 56px !important;  */
+    margin-left: -265px !important; 
+  }
+  mat-card {
+    margin: 40px 80px 100px;
+  }
+}
+
+::ng-deep.mat-select-panel {
+  margin-top: 35px;
+}
+
+.list-show {
+  display: none;
+  cursor: pointer;
+  left: 0;
+  position: absolute;
+  top: 2rem;
+  width: 94%;
+}
+
+.list-group {
+  padding-right: 0;
+  padding-left: 0px;
+  z-index: 1;
+  right: -15px;
+}
+
+.active {
+  display: block;
+}
+
+.list-length {
+  padding: 1rem 1rem;
+  padding-left: 2.125rem;
+  padding-right: 2.125rem;
+}
+
+.error-message {
+  transform: translate(3px, 35px);
+  font-size: .8rem;
+}
+
+.mat-toolbar-single-row {
+  height: 85px;
+}
+
+
+::ng-deep._mat-animation-noopable.mat-progress-spinner.mat-progress-spinner-indeterminate-animation[mode=indeterminate] circle {
+  animation-duration: 4s !important;
+  animation-timing-function: cubic-bezier(.35, 0, .25, 1) !important;
+  animation-iteration-count: infinite !important;
+}

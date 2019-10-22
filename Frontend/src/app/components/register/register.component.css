@@ -1,0 +1,19 @@
+.app-title {
+  margin-top: 100px !important;
+}
+
+@media (max-width: 576px) {
+  .app-title {
+    margin-top: 25px !important;
+  }
+
+  .center-content {
+    top: 42% !important;
+  }
+}
+
+@media (min-width: 769px) {
+  .app-title {
+    margin-top: 100px !important;
+  }
+}
