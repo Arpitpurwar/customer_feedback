@@ -34,7 +34,7 @@
     "passport-saml": "^1.1.0",
     "winston": "^3.2.1",
     "winston-daily-rotate-file": "^3.6.0",
-    "xml-crypto": "^1.4.0",
+    "xml-crypto": "^2.0.0",
     "xml2js": "^0.4.19"
   },
   "engines": {
