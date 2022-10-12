@@ -31,7 +31,7 @@
     "moment": "^2.24.0",
     "node-cryptojs-aes": "^0.4.0",
     "passport": "^0.4.0",
-    "passport-saml": "^1.1.0",
+    "passport-saml": "^3.2.2",
     "winston": "^3.2.1",
     "winston-daily-rotate-file": "^3.6.0",
     "xml-crypto": "^1.4.0",
